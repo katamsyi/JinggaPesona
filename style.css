@@ -600,41 +600,97 @@ section {
   margin-bottom: 50px;
 }
 
+/* ===========================
+   DESTINATION (FIX GRID RATA)
+=========================== */
+
 .destination-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  align-items: center;
   gap: 2rem;
+  align-items: stretch; /* FIX: semua card stretch */
 }
 
+/* FIX: jadikan card flex column supaya konten bawah rata */
+.destination-content .box {
+  position: relative;
+  display: flex; /* FIX */
+  flex-direction: column; /* FIX */
+  height: 100%; /* FIX */
+}
+
+/* gambar tetap */
+.destination-content .box img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: brightness(70%);
+  transition: all 0.3s cubic-bezier(0.499, 0.05, 0.55, 0.95);
+  display: block;
+}
+
+/* title spacing biar rapi */
+.destination-content .box h4 {
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+/* FIX: row didorong ke bawah supaya rata */
 .destination-content .row {
-  margin-top: 20px;
+  margin-top: auto; /* FIX PALING PENTING */
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* deskripsi */
+.destination-content .row p {
+  margin: 0;
+  flex: 1;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+
+  /* OPTIONAL: biar tinggi deskripsi seragam (hindari card beda tinggi) */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* max 3 baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* rating kanan */
+.rating-stars {
+  display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 4px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 145, 77, 0.14);
+  border: 1px solid rgba(255, 145, 77, 0.3);
 }
 
-.button {
-  background: var(--main-color);
-  color: var(--bg-color);
-  font-size: 15px;
-  font-weight: 500;
-  text-align: center;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+.rating-stars i {
+  color: var(--main-color);
+  font-size: 14px;
 }
 
-.button:hover {
-  transform: translateX(10px);
-  border: 2px solid var(--text-color);
-  color: var(--text-color);
-  background: transparent;
+.rating-num {
+  margin-left: 6px;
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.9rem;
 }
 
-.box {
-  position: relative;
+/* mobile */
+@media (max-width: 600px) {
+  .destination-content .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 }
 
 .box img {
@@ -1336,49 +1392,48 @@ section {
   }
 }
 
-
-.destination-content .row{
+.destination-content .row {
   margin-top: 12px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;        /* rating turun ke bawah */
+  align-items: flex-end; /* rating turun ke bawah */
   gap: 12px;
 }
 
-.destination-content .row p{
+.destination-content .row p {
   margin: 0;
-  flex: 1;                      /* deskripsi ambil ruang */
-  color: rgba(255,255,255,0.8); /* karena bg hitam */
+  flex: 1; /* deskripsi ambil ruang */
+  color: rgba(255, 255, 255, 0.8); /* karena bg hitam */
   line-height: 1.7;
 }
 
 /* rating kanan */
-.rating-stars{
+.rating-stars {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  flex: 0 0 auto;               /* jangan ikut melebar */
+  flex: 0 0 auto; /* jangan ikut melebar */
   white-space: nowrap;
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255,145,77,0.14);
-  border: 1px solid rgba(255,145,77,0.30);
+  background: rgba(255, 145, 77, 0.14);
+  border: 1px solid rgba(255, 145, 77, 0.3);
 }
 
-.rating-stars i{
-  color: var(--main-color);     /* bintang orange */
+.rating-stars i {
+  color: var(--main-color); /* bintang orange */
   font-size: 14px;
 }
 
-.rating-num{
+.rating-num {
   margin-left: 6px;
   font-weight: 700;
-  color: #fff;                  /* angka putih */
+  color: #fff; /* angka putih */
   font-size: 0.9rem;
 }
 
-@media (max-width: 600px){
-  .destination-content .row{
+@media (max-width: 600px) {
+  .destination-content .row {
     flex-direction: column;
     align-items: flex-start;
   }
