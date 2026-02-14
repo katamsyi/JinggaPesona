@@ -8,6 +8,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  max-width: 100%;
   border: none;
   outline: none;
   scroll-behavior: smooth;
@@ -693,6 +694,208 @@ section {
   }
 }
 
+/* ===========================
+   GALLERY CLIENT SECTION
+=========================== */
+
+.gallery-client {
+  padding: 70px 17% 60px;
+  background: var(--bg-color);
+}
+
+.gallery-client .center-text h5 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--main-color);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 12px;
+}
+
+.gallery-client .center-text h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+  margin-bottom: 14px;
+}
+
+.gallery-client .center-text p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* Gallery Card */
+.gallery-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 145, 77, 0.25);
+}
+
+/* Image */
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+.gallery-card:hover img {
+  filter: brightness(1.05);
+  transform: scale(1.08);
+}
+
+/* Overlay */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Label Text */
+.gallery-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ===========================
+   RESPONSIVE GALLERY
+=========================== */
+
+/* Tablet & Desktop Medium (1051px - 1700px) */
+@media (max-width: 1700px) {
+  .gallery-client {
+    padding: 60px 8% 50px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery-client {
+    padding: 50px 5% 40px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .gallery-card {
+    height: 300px;
+  }
+}
+
+/* Tablet (801px - 1050px) */
+@media (max-width: 1050px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-card {
+    height: 280px;
+  }
+}
+
+/* Mobile Landscape (601px - 800px) */
+@media (max-width: 800px) {
+  .gallery-client {
+    padding: 45px 4% 35px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .gallery-card {
+    height: 240px;
+  }
+
+  .gallery-label {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile Portrait (≤ 600px) */
+@media (max-width: 600px) {
+  .gallery-client {
+    padding: 40px 4% 30px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .gallery-card {
+    height: 280px;
+  }
+
+  .gallery-client .center-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .gallery-client .center-text p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Very Small Mobile (≤ 450px) */
+@media (max-width: 450px) {
+  .gallery-client {
+    padding: 35px 3% 25px;
+  }
+
+  .gallery-card {
+    height: 260px;
+  }
+}
+
 .box img {
   width: 100%;
   height: 400px;
@@ -974,7 +1177,9 @@ section {
   }
 }
 
-/* <= 1050px (MOBILE NAV DRAWER) */
+/* ===========================
+   NAVBAR MOBILE DRAWER FIX
+=========================== */
 @media (max-width: 1050px) {
   #menu-icon {
     display: block;
@@ -984,23 +1189,26 @@ section {
     display: none;
   }
 
-  /* Drawer menu dari kanan */
+  /* FIX: Drawer menu dari kanan */
   .navbar {
     position: fixed;
     top: 0;
     right: -100%;
     width: min(360px, 85vw);
     height: 100vh;
-
     background: #fff;
-    padding: 90px 18px 18px;
     border-radius: 0;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
 
+    /* KEY FIX: Flexbox yang benar */
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    justify-content: flex-start; /* BUKAN space-between */
+
+    /* Spacing konsisten */
+    gap: 8px; /* jarak antar item */
+    padding: 90px 16px 16px; /* top besar untuk avoid header */
 
     transition: right 0.35s ease;
     z-index: 9999;
@@ -1010,26 +1218,34 @@ section {
   .navbar.open {
     right: 0;
   }
+
+  /* Ensure list items tidak stretch tinggi */
   .navbar li {
+    flex: 0 0 auto; /* KEY: tidak expand vertikal */
     width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
+  /* Style link */
   .navbar a {
-    width: 100%;
     display: block;
+    width: 100%;
     color: #111;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 500;
     padding: 12px 14px;
     border-radius: 12px;
+    transition: all 0.3s ease;
   }
 
-  .navbar a:hover {
+  .navbar a:hover,
+  .navbar a.active {
     background: var(--main-color);
     color: #fff;
   }
 
-  /* Logo kecil di mobile */
+  /* Logo adjustments */
   .logo-img {
     width: 30px;
     height: 30px;
@@ -1037,36 +1253,245 @@ section {
   .logo-text {
     font-size: 24px;
   }
+}
 
-  /* Karena drawer putih, pesona harus gelap */
-  .logo-pesona {
-    color: #111;
+/* ===========================
+   RESPONSIVE SECTION PADDING
+=========================== */
+
+/* Desktop besar (> 1700px) */
+@media (min-width: 1701px) {
+  header {
+    padding: 27px 17%;
+  }
+  header.sticky {
+    padding: 15px 17%;
+  }
+  section {
+    padding: 70px 17% 60px;
+  }
+}
+
+/* Desktop normal (1201px - 1700px) */
+@media (max-width: 1700px) {
+  header {
+    padding: 22px 8%;
+  }
+  header.sticky {
+    padding: 14px 8%;
+  }
+  section {
+    padding: 60px 8% 50px;
+  }
+}
+
+/* Tablet (1051px - 1200px) */
+@media (max-width: 1200px) {
+  header {
+    padding: 18px 5%;
+  }
+  header.sticky {
+    padding: 12px 5%;
+  }
+  section {
+    padding: 50px 5% 40px;
   }
 
-  /* About 1 kolom */
+  :root {
+    --h1-font: 4rem;
+    --h2-font: 2.5rem;
+    --p-font: 15px;
+  }
+}
+
+/* Mobile landscape (801px - 1050px) */
+@media (max-width: 1050px) {
+  header {
+    padding: 16px 5%;
+  }
+  header.sticky {
+    padding: 12px 5%;
+  }
+  section {
+    padding: 50px 5% 40px;
+  }
+}
+
+/* Mobile portrait (601px - 800px) */
+@media (max-width: 800px) {
+  header {
+    padding: 14px 4%;
+  }
+  header.sticky {
+    padding: 10px 4%;
+  }
+  section {
+    padding: 45px 4% 35px;
+  }
+}
+
+/* Small mobile (≤ 600px) */
+@media (max-width: 600px) {
+  header {
+    padding: 12px 4%;
+  }
+  header.sticky {
+    padding: 8px 4%;
+  }
+  section {
+    padding: 40px 4% 30px;
+  }
+
+  :root {
+    --h1-font: 3rem;
+    --h2-font: 2rem;
+    --p-font: 14px;
+  }
+}
+
+/* Very small mobile (≤ 450px) */
+@media (max-width: 450px) {
+  header {
+    padding: 10px 3%;
+  }
+  header.sticky {
+    padding: 8px 3%;
+  }
+  section {
+    padding: 35px 3% 25px;
+  }
+}
+
+/* ===========================
+   GRID LAYOUT RESPONSIVE FIX
+=========================== */
+
+/* About Section */
+@media (max-width: 1050px) {
   .about {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
-  /* Tourlist 1 kolom */
+  .about-values {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Destination Cards */
+@media (max-width: 900px) {
+  .destination-content {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .destination-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .box img {
+    height: 320px;
+  }
+}
+
+/* Tourlist/Contact Section */
+@media (max-width: 1050px) {
   .tourlist {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 80px 5% 50px;
+    padding: 70px 5% 50px;
   }
 
-  /* Newsletter 1 kolom */
+  .tourlist-img {
+    order: 1;
+  }
+
+  .tourlist-text {
+    order: 2;
+  }
+}
+
+/* Newsletter */
+@media (max-width: 900px) {
   .newsletter-content {
     grid-template-columns: 1fr;
-    padding: 40px 30px;
+    padding: 35px 25px;
   }
+
   .newsletter-content form {
     grid-template-columns: 1fr;
   }
-  .btn1 {
-    width: 100%;
+}
+
+/* Testimoni Slider */
+@media (max-width: 800px) {
+  .testi-card {
+    flex-basis: 340px;
   }
+
+  .testi-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .testi-card {
+    flex-basis: 290px;
+  }
+}
+
+/* ===========================
+   HOME HERO RESPONSIVE
+=========================== */
+@media (max-width: 1050px) {
+  .home {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    height: 85vh;
+    margin-top: 80px; /* compensate for fixed header */
+  }
+
+  .home-text {
+    max-width: 100%;
+  }
+
+  .home-text h5 {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .home-text h1 {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .home-text p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+/* ===========================
+   PREVENT HORIZONTAL SCROLL
+=========================== */
+* {
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section {
+  overflow-x: hidden;
 }
 
 /* <= 800px */
@@ -1437,4 +1862,18 @@ section {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* tombol tiktok */
+.btn-tt {
+  background: rgb(255, 145, 77);
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.btn-tt:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+  transform: translateX(10px);
 }

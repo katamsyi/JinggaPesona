@@ -8,6 +8,8 @@
 
     <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan version query di HTML: -->
+    <link rel="stylesheet" href="style.css?v=2.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -16,9 +18,9 @@
     <!-- header section start-->
     <header>
         <a href="#" class="logo">
-            <img src="images/logo.jpeg" alt="Logo Jinngga Pesona" class="logo-img">
+            <img src="images/logo.jpeg" alt="Logo Jingga Pesona" class="logo-img">
             <span class="logo-text">
-                <span class="logo-jingga">Jinngga</span>
+                <span class="logo-jingga">Jingga</span>
                 <span class="logo-pesona">Pesona</span>
             </span>
         </a>
@@ -51,9 +53,11 @@
                 Biarkan Jogja membisikkan cerita cinta yang indah. Setiap momen didesain
                 dengan kelembutan—seperti mimpi yang menjadi nyata.
             </p>
-            <button class="btn-white">
-                Book Now <i class="fa fa-telegram"></i>
-            </button>
+            <a class="btn-white"
+                href="https://wa.me/6287838907335?text=Halo%20Jingga%20Pesona%2C%20saya%20ingin%20booking%20paket%20trip."
+                target="_blank" rel="noopener noreferrer">
+                Book Now <i class="fa fa-whatsapp"></i>
+            </a>
         </div>
     </section>
     <!-- home section end-->
@@ -258,6 +262,69 @@
         </div>
     </section>
     <!-- testimonial section end -->
+
+    <!-- gallery client section start -->
+    <section class="gallery-client" id="gallery-client">
+        <div class="center-text">
+            <h5>Galeri</h5>
+            <h2>Our Gallery Client</h2>
+            <p>Momen indah perjalanan bersama Jingga Pesona dari berbagai destinasi</p>
+        </div>
+
+        <div class="gallery-grid">
+            <a href="#" class="gallery-card" data-title="Honeymoon Trip">
+                <img src="dokumentasi/1.jpeg" alt="Gallery 1">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+
+            <a href="#" class="gallery-card" data-title="Family Adventure">
+                <img src="dokumentasi/2.jpeg" alt="Gallery 2">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+
+            <a href="#" class="gallery-card" data-title="Open Trip">
+                <img src="dokumentasi/3.jpeg" alt="Gallery 3">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+
+            <a href="#" class="gallery-card" data-title="Beach Sunset">
+                <img src="dokumentasi/4.jpeg" alt="Gallery 4">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+
+            <a href="#" class="gallery-card" data-title="Cultural Tour">
+                <img src="dokumentasi/5.jpeg" alt="Gallery 5">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+
+            <a href="#" class="gallery-card" data-title="Nature Healing">
+                <img src="dokumentasi/6.jpeg" alt="Gallery 6">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+
+            <a href="#" class="gallery-card" data-title="City Exploration">
+                <img src="dokumentasi/7.jpeg" alt="Gallery 7">
+                <div class="gallery-overlay">
+                    <span class="gallery-label">Honeymoon Trip</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    <!-- gallery client section end -->
+
+
     <!-- destination section start -->
     <section class="destination" id="destinations">
         <div class="center-text">
@@ -401,8 +468,12 @@
                     class="btn btn-ig">
                     <i class="fa fa-instagram"></i> Instagram
                 </a>
-            </div>
 
+                <a href="https://www.tiktok.com/@jinggapesona?_r=1&_t=ZS-93uuAfP8iyV" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-tt">
+                    <i class="fa fa-music"></i> TikTok
+                </a>
+            </div>
         </div>
 
         <div class="tourlist-img">
